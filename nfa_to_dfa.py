@@ -134,11 +134,7 @@ while True:
     source, symbol, destination = transition_input.split(',')
 
 
-#     transitions.get((source, symbol), frozenset()): This retrieves the value corresponding to the key (source, symbol) from the transitions dictionary. If the key is not present in the dictionary, it returns an empty frozenset().
-# frozenset([destination]): This creates a frozenset containing only the destination state. The destination state is added to a frozenset to ensure immutability.
-# ... | ...: This performs a set union operation between the frozenset obtained from the dictionary (or an empty frozenset if the key is not present) and the frozenset containing the destination state. This ensures that the new destination state is added to the set of states for the given source and symbol.
-# transitions[(source, symbol)] = ...: This assigns the result of the set union operation back to the transitions dictionary at the key (source, symbol). If there were existing transitions for the same source and symbol, the new destination state is added to them.
-# Essentially, this line adds or updates a transition in the transitions dictionary based on the parsed source, symbol, and destination from the input string.
+
 
 
     transitions[(source, symbol)] = transitions.get((source, symbol), frozenset()) | frozenset([destination])
@@ -151,13 +147,13 @@ dfa_states, dfa_alphabet, dfa_transitions, dfa_start_state, dfa_accept_states = 
     nfa_states, alphabet, transitions, start_state, accept_states
 )
 
-# Display NFA Transition Table
+
 display_transition_table(nfa_states, alphabet, transitions)
 
-# Display NFA Image
+
 create_nfa_image(nfa_states, alphabet, transitions, start_state, accept_states)
 
-# Display DFA Transition Table
+
 display_transition_table(dfa_states, dfa_alphabet, dfa_transitions)
 
 # Display DFA Image
